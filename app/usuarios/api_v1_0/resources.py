@@ -11,25 +11,6 @@ usuario_schema = UsuarioSchema()
 api = Api(usuarios_v1_0_bp)
 
 class UsuarioResource(Resource):
-    def put(self, email):
-        """Permite modificar un usuario"""
-        temp = request.get_json()
-        try:
-            temp['email'] = email
-            data = usuario_schema.load(temp)
-
-            usuario = Usuario.simple_filter_one(email=email)
-            if usuario is None:
-                raise ObjectNotFound('El usuario no existe')
-
-        except ValidationError as err:
-            raise ObjectNotFound(err.messages)
-
-        usuario.nombre = data['nombre']
-        usuario.clave = data['clave']
-
-        usuario.update()
-        return ''
     """Permite administrar un usuario"""
 
 
