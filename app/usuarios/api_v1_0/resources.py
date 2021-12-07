@@ -30,6 +30,17 @@ class UsuarioResource(Resource):
 
         usuario.update()
         return ''
+    """Permite administrar un usuario"""
+
+
+    def delete(self, email):
+        """Permite eliminar un usuario"""
+        usuario = Usuario.simple_filter_one(email=email)
+        if usuario is None:
+            raise ObjectNotFound('El usuario no existe')
+
+        usuario.delete()
+        return '', 204
 
 api.add_resource(
     UsuarioResource,
