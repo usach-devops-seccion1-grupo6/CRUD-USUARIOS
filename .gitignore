@@ -139,6 +139,7 @@ dmypy.json
 
 # ejercicio 2
 app/aplicacion.sqlite
-.log
-.class
+
+a.*
+*.class
 test
