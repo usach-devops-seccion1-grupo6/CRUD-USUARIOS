@@ -136,6 +136,6 @@ curl -X PUT -H "Content-Type: application/json" -d '{
 # Integrantes Grupo 6
 * Gonzalo Muñoz Boisier
 * Flamel Jesod Canto Sanchez
-* David Antonio Figueroa Mejias
+* David Antonio Figueroa Mejías
 * Eduardo Andres Cabrera Flores
 * Alejandro Ignacio Carrasco Navarrete
