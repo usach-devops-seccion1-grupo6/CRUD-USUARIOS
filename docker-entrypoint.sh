@@ -7,4 +7,5 @@ then
     flask db upgrade
 fi
 
+export APP_SETTINGS=app.config.Production
 waitress-serve --port=5000  --call 'entrypoint:create_app'

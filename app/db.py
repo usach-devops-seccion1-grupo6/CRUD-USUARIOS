@@ -27,7 +27,7 @@ class BaseModelMixin:
 
     @classmethod
     def get_by_id(cls, id):
-        """Obtiene un registro en base al ID"""
+        """Obtiene un registro en base al id"""
         return cls.query.get(id)
 
     @classmethod
