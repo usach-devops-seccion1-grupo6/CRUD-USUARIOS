@@ -132,6 +132,7 @@ curl -X PUT -H "Content-Type: application/json" -d '{
 }' -H "Authorization: Bearer $TOKEN" http://localhost:5000/api/v1.0/usuarios/${correo}
 ```
 
+
 # Integrantes Grupo 6
 * Gonzalo Muñoz Boisier
 * Flamel Jesod Canto Sanchez
