@@ -102,7 +102,7 @@ class UsuarioResource(Resource):
         try:
             temp['email'] = email
             data = usuario_schema.load(temp)
-
+            """Permite buscar datos de usuario en base a email"""
             usuario = Usuario.simple_filter_one(email=email)
             if usuario is None:
                 return {'msg': 'El usuario no existe'}, 404
