@@ -13,6 +13,21 @@ api = Api(usuarios_v1_0_bp)
 class UsuarioResource(Resource):
     """Permite administrar un usuario"""
 
+    def put(self, email):
+        
+        try:
+            temp = request.get_json()
+            data = usuario_schema.load(temp)
+            usuario = Usuario.simple_filter_one(email=email)
+            if usuario is None:
+                raise ObjectNotFound('El usuario no existe')
+        except ValidationError as err:
+            raise ObjectNotFound(err.messages)
+        usuario.nombre = data['nombre']
+        usuario.clave = data['clave']
+        usuario.update()
+
+        return ''
 
     def delete(self, email):
         """Permite eliminar un usuario"""
