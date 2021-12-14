@@ -1,4 +1,5 @@
 """Archivo que declara Modelo"""
+from flask_bcrypt import generate_password_hash, check_password_hash
 from app.db import db, BaseModelMixin
 
 
@@ -19,3 +20,11 @@ class Usuario(db.Model, BaseModelMixin):
 
     def __str__(self):
         return f'{self.nombre} <{self.email}>'
+
+    def hash_clave(self):
+        """Genera hash a partir de clave"""
+        self.clave = generate_password_hash(self.clave).decode('utf8')
+
+    def check_clave(self, clave):
+        """Compara clave guardada"""
+        return check_password_hash(self.clave, clave)
